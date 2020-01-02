@@ -13,6 +13,7 @@ const mLogin = () => import('@/views/account/Login')
 const mRegister = () => import('@/views/account/Register')
 const mDashboard = () => import('@/views/dashboard')
 const mNews = () => import('@/views/news')
+const mProfile = () => import('@/views/profile')
 
 Vue.use(Router)
 
@@ -40,6 +41,12 @@ function configRoutes() {
           name: 'News',
           cname: '资源动态',
           component: mNews
+        },
+        {
+          path: 'profile',
+          name: 'Profile',
+          cname: '用户资料',
+          component: mProfile
         },
       ]
     },

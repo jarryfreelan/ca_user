@@ -47,6 +47,10 @@ export const cnLangData = {
   register_wrong_captcha: '验证码不正确',
   register_success: '成功创建帐户。请登录',
 
+  // profile
+  profile_information_title:'個人資料',
+  full_name:'全名',
+
   // Logout
   logout_success: '成功登出',
 

@@ -47,6 +47,45 @@ export const enLangData = {
   register_wrong_captcha: 'Incorrect captcha code',
   register_success: 'Successful Create Account. Please Login',
 
+  // profile
+  profile_information_title: 'PROFILE INFORMATION',
+  email_information_title: 'UPDATE EMAIL',
+  password_information_title: 'RESET PASSWORD',
+
+  profile_fullname: 'Full Name',
+  profile_phone: 'Contact Number',
+  profile_gender: 'Gender',
+  profile_birth: 'Date Of Birth',
+  profile_address1: 'Address 1',
+  profile_address2: 'Address 2',
+  profile_postcode: 'Postcode',
+  profile_city: 'City',
+  profile_state: 'State',
+  profile_country: 'Country',
+  profile_email: 'Email',
+  profile_oldpassword: 'Old Password',
+  profile_newpassword: 'New Password',
+  profile_confirmpassword: 'Confirm Password',
+
+  enter_fullname: 'Enter full name',
+  enter_phone: 'Enter phone',
+  enter_gender: 'Enter gender',
+  enter_birth: 'Enter date of birth',
+  enter_address1: 'Enter address1',
+  enter_address2: 'Enter address2',
+  enter_postcode: 'Enter postcode',
+  enter_city: 'Enter city',
+  enter_state: 'Enter state',
+  enter_country: 'Enter country',
+  enter_email: 'Enter email',
+  enter_oldpassword: 'Enter old password',
+  enter_newpassword: 'Enter new password',
+  enter_confirmpassword: 'Enter confirm password',
+
+  profile_gender_M: 'Male',
+  profile_gender_F: 'Female',
+  
+
   // Logout
   logout_success: 'Successful logout',
 
