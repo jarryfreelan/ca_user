@@ -4,11 +4,11 @@
       <b-col sm="12" lg="12">
         <b-card no-body header-bg-variant="white">
           <b-card-header style="float: center; align-items: center; text-align:center;">
-            <strong class="text-dark">{{ $ml.get('password_information_title') }}</strong>
+            <strong class="text-dark">{{ $ml.get('profile_password_information_title') }}</strong>
           </b-card-header>
           <b-card-body>
             <b-row>
-              <b-col cols="6" sm="6" md="6" xl class="mb-6 mb-xl-0">
+              <b-col cols="12" sm="6" md="6" xl class="mb-6 mb-xl-0">
                 <b-form-group
                   class="mb-3"
                   :label="$ml.get('profile_oldpassword')"
@@ -17,11 +17,11 @@
                     v-model="oldpassword"
                     type="password"
                     :readonly="!edit_click"
-                    :placeholder="$ml.get('enter_oldpassword')"
+                    :placeholder="$ml.get('profile_enter_oldpassword')"
                   />
                 </b-form-group>
               </b-col>
-              <b-col cols="6" sm="6" md="6" xl class="mb-6 mb-xl-0">
+              <b-col cols="12" sm="6" md="6" xl class="mb-6 mb-xl-0">
                 <b-form-group
                   class="mb-3"
                   :label="$ml.get('profile_newpassword')"
@@ -30,11 +30,11 @@
                     v-model="newpassword"
                     type="password"
                     :readonly="!edit_click"
-                    :placeholder="$ml.get('enter_newpassword')"
+                    :placeholder="$ml.get('profile_enter_newpassword')"
                   />
                 </b-form-group>
               </b-col>
-              <b-col cols="6" sm="6" md="6" xl class="mb-6 mb-xl-0">
+              <b-col cols="12" sm="6" md="6" xl class="mb-6 mb-xl-0">
                 <b-form-group
                   class="mb-3"
                   :label="$ml.get('profile_confirmpassword')"
@@ -43,7 +43,7 @@
                     v-model="confirmpassword"
                     type="password"
                     :readonly="!edit_click"
-                    :placeholder="$ml.get('enter_confirmpassword')"
+                    :placeholder="$ml.get('profile_enter_confirmpassword')"
                   />
                 </b-form-group>
               </b-col>
@@ -70,24 +70,15 @@ export default {
   },
   data: () => {
     return { 
-      
       oldpassword: '',
       newpassword: '',
       confirmpassword: '',
-
       edit_click: false,
-      
     }
-  },
-  mounted () {
-    // this.username = store.getters.username
-    // this.getEmail()
   },
   methods: {
     update_password(){
       var self = this
-      console.log(self.email)
-
       var objParams = {
         oldPassword: self.oldpassword,
         newPassword: self.newpassword,
@@ -105,6 +96,18 @@ export default {
         })
         .catch((error) => {
           if(error.status == 'errorValidation') {
+            for (const [key, value] of Object.entries(error.error)) {
+              var errMsg = '';
+              for (var i = 0; i < value.length; i++) {
+                value[i] = value[i].split(' ').join('_')
+                value[i] = value[i].split('.').join('')
+                // value[i] = this.$ml.get(value[i])
+                errMsg = errMsg + value[i] + '. '
+              }
+              console.log(errMsg)
+              self.notifice('error', errMsg, ' ')
+            }
+          } else {
             self.notifice('error', this.$ml.get(error.error), ' ')
           }
         })

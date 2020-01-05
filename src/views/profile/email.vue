@@ -4,11 +4,11 @@
       <b-col sm="12" lg="12">
         <b-card no-body header-bg-variant="white">
           <b-card-header style="float: center; align-items: center; text-align:center;">
-            <strong class="text-dark">{{ $ml.get('email_information_title') }}</strong>
+            <strong class="text-dark">{{ $ml.get('profile_email_information_title') }}</strong>
           </b-card-header>
           <b-card-body>
             <b-row>
-              <b-col cols="6" sm="6" md="6" xl class="mb-6 mb-xl-0">
+              <b-col cols="12" sm="6" md="6" xl class="mb-6 mb-xl-0">
                 <b-form-group
                   class="mb-3"
                   :label="$ml.get('profile_email')"
@@ -21,7 +21,7 @@
                       v-model="email"
                       type="text"
                       :readonly="!edit_click"
-                      :placeholder="$ml.get('enter_email')"
+                      :placeholder="$ml.get('profile_enter_email')"
                     />
                   </b-input-group>
                 </b-form-group>
@@ -90,7 +90,18 @@ export default {
           self.edit_click = false
         })
         .catch((error) => {
-          if(error.status == 'errorValidation') {
+          if(error.status == 'errorValidation') { 
+            for (const [key, value] of Object.entries(error.error)) {
+              var errMsg = '';
+              for (var i = 0; i < value.length; i++) {
+                value[i] = value[i].split(' ').join('_')
+                value[i] = value[i].split('.').join('')
+                value[i] = this.$ml.get(value[i])
+                errMsg = errMsg + value[i] + '. '
+              }
+              self.notifice('error', errMsg, ' ')
+            }
+          } else {
             self.notifice('error', this.$ml.get(error.error), ' ')
           }
         })

@@ -271,7 +271,7 @@ export default {
                 value[i] = value[i].split(' ').join('_')
                 value[i] = value[i].split('.').join('')
                 value[i] = this.$ml.get(value[i])
-                errMsg = errMsg + value[i] + '. ';
+                errMsg = errMsg + value[i] + '. '
               }
               self.invalidFeedback[key] = errMsg
               self.state[key] = false
