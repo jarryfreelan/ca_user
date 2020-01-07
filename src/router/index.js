@@ -15,6 +15,9 @@ const mDashboard = () => import('@/views/dashboard')
 const mNews = () => import('@/views/news')
 const mProfile = () => import('@/views/profile')
 
+// Jarry Test
+const tDeposit = () => import('@/views/jarrytest/depositorder')
+
 Vue.use(Router)
 
 function configRoutes() {
@@ -47,6 +50,16 @@ function configRoutes() {
           name: 'Profile',
           cname: '用户资料',
           component: mProfile
+        },
+
+
+
+        // Jarry Test
+        {
+          path: 'deposittest',
+          name: 'Deposit_Test',
+          cname: '用户资料',
+          component: tDeposit
         },
       ]
     },
