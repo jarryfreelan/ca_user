@@ -19,6 +19,7 @@ import AuthService from './services/auth'
 import ApiService from './services/api'
 import DateTimeManagment from './services/datetime'
 import './i18n'
+import IconCrypto from "vue-cryptocurrency-icons"
 
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axios)
@@ -36,6 +37,7 @@ Vue.use(Table)
 Vue.use(Tag)
 Vue.use(Popover)
 Vue.use(Tree)
+Vue.use(IconCrypto)
 
 Vue.prototype.$message = message
 notification.config({

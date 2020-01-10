@@ -41,6 +41,7 @@
     "vue-axios": "^2.1.5",
     "vue-captcha": "^1.0.2",
     "vue-chartjs": "^3.5.0",
+    "vue-cryptocurrency-icons": "^0.2.4",
     "vue-multilanguage": "^4.0.9",
     "vue-particles": "^1.0.9",
     "vue-perfect-scrollbar": "^0.1.0",

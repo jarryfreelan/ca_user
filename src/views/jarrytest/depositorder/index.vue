@@ -39,6 +39,40 @@
               <b-col cols="12" sm="12" md="12">
                 <p>Address: {{ address }}</p>
               </b-col>
+              <b-col cols="12" sm="12" md="12">
+                <p>Bitbill URL: </p>
+                <a :href="bitbillUrl" target="_blank">{{ bitbillUrl }}</a>
+              </b-col>
+            </b-row>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col sm="6" lg="6">
+        <b-card no-body header-bg-variant="white">
+          <b-card-header style="float: center; align-items: center; text-align:center;">
+            <strong class="text-dark">Coin Currencies List</strong>
+          </b-card-header>
+          <b-card-body>
+            <b-row>
+              <b-col cols="12" sm="12" md="12">
+                <ul>
+                  <li>
+                    <b-button variant="primary-outline"><IconCrypto coinname="BTC" color="color" format="svg" /> BTC</b-button>
+                  </li>
+                  <li>
+                    <IconCrypto coinname="BHC" color="color" format="32" />
+                  </li>
+                  <li>
+                    <IconCrypto coinname="ETH" color="color" format="128" />
+                  </li>
+                  <li>
+                    <IconCrypto coinname="USDT" color="color" format="svg" />
+                  </li>
+                  <li>
+                    <IconCrypto coinname="EOS" color="color" format="svg" />
+                  </li>
+                </ul>
+              </b-col>
             </b-row>
           </b-card-body>
         </b-card>
@@ -60,6 +94,7 @@ export default {
       address: '',
       size: 200,
       currency: '',
+      bitbillUrl: '',
     }
   },
   methods: {
@@ -72,6 +107,7 @@ export default {
         .then((response) => {
           console.log(response)
           self.address = response.depositOrder.order_address
+          self.bitbillUrl = response.depositOrder.order_url
         })
         .catch((error) => {
           self.notifice('error', this.$ml.get(error.error), ' ')
